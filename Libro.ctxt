@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Libro
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Libro\ here.\r\n\ \r\n\ @author\ Ana\ Chen\ Zhang\r\n\ @version\ 04/09/2024\r\n
+comment1.params=
+comment1.target=Libro()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Libro\r\n
+comment2.params=titulo\ autor\ a\u00F1oPublicacion\ isbn
+comment2.target=Libro(java.lang.String,\ java.lang.String,\ int,\ java.lang.String)
+comment3.params=
+comment3.target=void\ mostrarInformacion()
+comment3.text=\r\n\ Muestra\ la\ informaci\u00F3n\ del\ libro\ en\ consola.\r\n\ \r\n\ @param\ \ titulo\ \ \ \ \ \ \ \ \ \ \ \ Titulo\ del\ libro\r\n\ @param\ \ autor\ \ \ \ \ \ \ \ \ \ \ \ \ Autor\ del\ libro\r\n\ @param\ \ a\u00F1oPublicacion\ \ \ \ A\u00F1o\ de\ publicaci\u00F3n\r\n\ @param\ \ isbn\ \ \ \ \ \ \ \ \ \ \ \ \ \ N\u00FAmero\ ISBN\ del\ libro.\ \r\n
+comment4.params=
+comment4.target=boolean\ esAntiguo()
+comment4.text=\r\n\ Devuelve\ true\ si\ el\ libro\ fue\ publicado\ hace\ m\u00E1s\ de\ 20\ a\u00F1os,\ y\ false\ en\ caso\ contrario.\r\n\ \r\n\ @param\ \ a\u00F1oPublicacion\ \ \ \ A\u00F1o\ de\ publicaci\u00F3n\r\n
+comment5.params=
+comment5.target=java.lang.String\ getTitulo()
+comment5.text=\r\n\ Obtiene\ el\ titulo\r\n\ \r\n\ @return\ \ titulo\ \ \ \ Titulo\ del\ libro\r\n
+numComments=6
