@@ -1,34 +1,27 @@
-import java.util.*;
-
 /**
  * Write a description of class Biblioteca here.
  * 
  * @author Ana Chen Zhang
- * @version 04/09/2024
+ * @version 11/09/2024
  */
-public class Biblioteca extends Libro
+import java.util.*;
+public class Biblioteca
 {
-    private ArrayList<Libro> libros; //Una lista de objetos Libro que representa los libros de la biblioteca.
+    private final ArrayList<Libro> libros; //Una lista de objetos Libro que representa los libros de la biblioteca.
 
-    /**
-     * Constructor for objects of class Biblioteca
-     */
+    //Constructor for objects of class Biblioteca
     public Biblioteca()
     {
-        this.libros = new ArrayList<Libro>();
+        this.libros = new ArrayList<>();
     }
 
-    /**
-     *  Añade un libro a la biblioteca.
-     */
+    //Añade un libro a la biblioteca
     public void agregarLibro(Libro libro)
     {
         this.libros.add(libro);
     }
-    
-    /**
-     *  Muestra la información de todos los libros en la biblioteca
-     */
+/* 
+    //Muestra la información de todos los libros en la biblioteca
     public void mostrarLibros()
     {
         for(Libro libro : this.libros)
@@ -36,11 +29,10 @@ public class Biblioteca extends Libro
             libro.mostrarInformacion();
         }
     }
+
     
-    /**
-     *  Busca un libro por su título y muestra su información si lo encuentra; de lo contrario, muestra un mensaje indicando que no se encontró el libro.
-     * @return     the sum of x and y 
-     */
+    // Busca un libro por su título y muestra su información si lo encuentra; 
+    // de lo contrario, muestra un mensaje indicando que no se encontró el libro.
     public Libro buscarLibroPorTitulo(String titulo)
     {
         for(Libro libro : this.libros)
@@ -51,5 +43,28 @@ public class Biblioteca extends Libro
             }
         }
         return null;
+    }
+*/
+
+    // Buscar libros Prestados
+    public ArrayList<Libro> buscarPrestados() {
+        ArrayList<Libro> prestados = new ArrayList<>();
+        for (Libro libro : this.libros) {
+            if (libro.getPrestado()) {
+                prestados.add(libro);
+            }
+        }
+        return prestados;
+    }
+
+    // Buscar libros No Prestados
+    public ArrayList<Libro> buscarNoPrestados() {
+        ArrayList<Libro> noPrestados = new ArrayList<>();
+        for (Libro libro : this.libros) {
+            if (!libro.getPrestado()) {
+                noPrestados.add(libro);
+            }
+        }
+        return noPrestados;
     }
 }
