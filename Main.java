@@ -1,33 +1,22 @@
-import java.util.ArrayList;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+        Autor autor1 = new Autor(294665, "Huai Shang", "294665@jjwxc.net");
+        Autor autor2 = new Autor(1322620, "Mo Xiang Tong Xiu", "1322620@jjwxc.net");
+        
         Biblioteca biblioteca = new Biblioteca();
 
-        Libro libro1 = new Libro("Breaking Through the Clouds", "Huai Shang",2017, "978-7559436399", false);
-        Libro libro2 = new Libro("The Grave Robbers' Chronicles Vol 1-6","Xu Lei",2014,"978-1934159378",true);
+        Libro libro1 = new Libro("Breaking Through the Clouds", autor1, 2017, "978-7559436399", false);
+        Libro libro2 = new Libro("The Grandmaster of Demonic Cultivation",autor2, 2022,"978-3842085329",true);
 
         biblioteca.agregarLibro(libro1);
         biblioteca.agregarLibro(libro2);
 
-        ArrayList<Libro> librosPrestados = biblioteca.buscarPrestados();
-        System.out.println("\n\tLibros prestados:");
-        for (Libro libro : librosPrestados) {
-            System.out.println( "Título: " + libro.getTitulo() + 
-                                "\nAutor: " + libro.getAutor() + 
-                                "\nAño de publicación: " + libro.getAñoPublicacion() + 
-                                "\nISBN: " + libro.getIsbn() + 
-                                "\nPrestado: " + libro.getPrestado());
-        }
+        // Mostrar todos los libros
+        System.out.println(biblioteca.toString());
+        System.out.println(biblioteca.toStringLibrosPrestados());
+        System.out.println(biblioteca.toStringLibrosNoPrestados());
 
-        ArrayList<Libro> librosNoPrestados = biblioteca.buscarNoPrestados();
-        System.out.println("\n\tLibros no prestados:");
-        for (Libro libro : librosNoPrestados) {
-            System.out.println( "Título: " + libro.getTitulo() + 
-                                "\nAutor: " + libro.getAutor() + 
-                                "\nAño de publicación: " + libro.getAñoPublicacion() + 
-                                "\nISBN: " + libro.getIsbn() + 
-                                "\nPrestado: " + libro.getPrestado());
-        }
     }
 }

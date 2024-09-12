@@ -9,16 +9,16 @@
  */
 
  public class Autor {
-    private final int id;
-    private final String autor;
-    private final String correo;
+    private int id;
+    private String autor;
+    private String correo;
 
     // Constructor for the Autor class
-    public Autor() {
+    /*public Autor() {
         id = 294665;
         autor = "Huai Shang";
         correo = "294665@jjwxc.net";
-    }
+    }*/
     public Autor(int id, String autor, String correo) {
         this.id = id;
         this.autor = autor;
@@ -37,5 +37,19 @@
     public String getCorreo() {
         return correo;
     }
+
+    // Setters for the fields
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public void getCorreo(String correo) {
+        this.correo = correo;
+    }
 }
+
 

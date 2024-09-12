@@ -7,22 +7,22 @@
 import java.time.LocalDate;
 
 public class Libro {
-    private final String titulo; // Título del libro
-    private final String autor; // Autor del libro
-    private final int añoPublicacion; // Año de publicación
-    private final String isbn; // Número ISBN del libro
-    private final boolean prestado; // Ver si el libr se presto o no
+    private String titulo; // Título del libro
+    private String autor; // Autor del libro
+    private int añoPublicacion; // Año de publicación
+    private String isbn; // Número ISBN del libro
+    private boolean prestado; // Ver si el libr se presto o no
 
     /**
      * Constructor por defecto para objetos de la clase Libro.
-     */
+     
     public Libro() {
         this.titulo = "The Grave Robbers' Chronicles Vol 1-6";
         this.autor = "Xu Lei";
         this.añoPublicacion = 2014;
         this.isbn = "978-1934159378";
         this.prestado = false;
-    }
+    }*/
 
     /**
      * Constructor con parámetros para objetos de la clase Libro.
@@ -39,13 +39,7 @@ public class Libro {
         this.isbn = isbn;
         this.prestado = prestado;
     }
-/* 
-   //Muestra la información del libro en consola.
-    public void mostrarInformacion() {
-        System.out.println("\tInformación del Libro\nTítulo: " + titulo + "\nAutor: " + autor 
-            + "\nAño de publicación: " + añoPublicacion + "\nISBN: " + isbn + "\nPrestado: " + prestado);
-    }
-*/
+
     //Devuelve true si el libro fue publicado hace más de 20 años, y false en caso contrario.
     public boolean esAntiguo() {
         int añoActual = LocalDate.now().getYear();
@@ -73,4 +67,35 @@ public class Libro {
         return prestado;
     }
 
+    // Setters for the fields
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public void setAñoPublicacion(int añoPublicacion) {
+        this.añoPublicacion = añoPublicacion;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public void getPrestado(boolean prestado) {
+        this.prestado = prestado;
+    }
+/* 
+    // Método para prestar un libro
+    public void prestar() {
+        this.prestado = true;
+    }
+
+    // Método para devolver un libro
+    public void devolver() {
+        this.prestado = false;
+    }
+    */
 }

@@ -20,51 +20,55 @@ public class Biblioteca
     {
         this.libros.add(libro);
     }
-/* 
-    //Muestra la información de todos los libros en la biblioteca
-    public void mostrarLibros()
-    {
-        for(Libro libro : this.libros)
-        {
-            libro.mostrarInformacion();
-        }
-    }
-
-    
-    // Busca un libro por su título y muestra su información si lo encuentra; 
-    // de lo contrario, muestra un mensaje indicando que no se encontró el libro.
-    public Libro buscarLibroPorTitulo(String titulo)
-    {
-        for(Libro libro : this.libros)
-        {
-            if(libro.getTitulo().equals(titulo))
-            {
-                return libro;
-            }
-        }
-        return null;
-    }
-*/
 
     // Buscar libros Prestados
-    public ArrayList<Libro> buscarPrestados() {
-        ArrayList<Libro> prestados = new ArrayList<>();
-        for (Libro libro : this.libros) {
-            if (libro.getPrestado()) {
-                prestados.add(libro);
+    public String toStringLibrosPrestados() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Libros prestados en la biblioteca:\n");
+        for (Libro libro : libros) {
+            if (libro.getPrestado()) {  // Verifica si el libro está prestado
+                sb.append("Título: ").append(libro.getTitulo())
+                  .append(", Autor: ").append(libro.getAutor())
+                  .append(", Año: ").append(libro.getAñoPublicacion())
+                  .append(", ISBN: ").append(libro.getIsbn())
+                  .append("\n");
             }
         }
-        return prestados;
+        return sb.toString();
     }
 
     // Buscar libros No Prestados
-    public ArrayList<Libro> buscarNoPrestados() {
-        ArrayList<Libro> noPrestados = new ArrayList<>();
-        for (Libro libro : this.libros) {
-            if (!libro.getPrestado()) {
-                noPrestados.add(libro);
+    public String toStringLibrosNoPrestados() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Libros no prestados en la biblioteca:\n");
+        for (Libro libro : libros) {
+            if (!libro.getPrestado()) {  // Verifica si el libro NO está prestado
+                sb.append("Título: ").append(libro.getTitulo())
+                  .append(", Autor: ").append(libro.getAutor())
+                  .append(", Año: ").append(libro.getAñoPublicacion())
+                  .append(", ISBN: ").append(libro.getIsbn())
+                  .append("\n");
             }
         }
-        return noPrestados;
+        return sb.toString();
+    }
+
+    public List<Libro> getLibros() {
+        return libros;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Libros en la biblioteca:\n");
+        for (Libro libro : libros) {
+            sb.append("Título: ").append(libro.getTitulo())
+            .append(", Autor: ").append(libro.getAutor())
+            .append(", Año: ").append(libro.getAñoPublicacion())
+            .append(", ISBN: ").append(libro.getIsbn())
+            .append(", Prestado: ").append(libro.getPrestado())
+            .append("\n");
+        }
+        return sb.toString();
     }
 }
