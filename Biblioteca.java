@@ -1,55 +1,74 @@
-import java.util.*;
-
 /**
  * Write a description of class Biblioteca here.
  * 
  * @author Ana Chen Zhang
- * @version 04/09/2024
+ * @version 11/09/2024
  */
-public class Biblioteca extends Libro
+import java.util.*;
+public class Biblioteca
 {
-    private ArrayList<Libro> libros; //Una lista de objetos Libro que representa los libros de la biblioteca.
+    private final ArrayList<Libro> libros; //Una lista de objetos Libro que representa los libros de la biblioteca.
 
-    /**
-     * Constructor for objects of class Biblioteca
-     */
+    //Constructor for objects of class Biblioteca
     public Biblioteca()
     {
-        this.libros = new ArrayList<Libro>();
+        this.libros = new ArrayList<>();
     }
 
-    /**
-     *  Añade un libro a la biblioteca.
-     */
+    //Añade un libro a la biblioteca
     public void agregarLibro(Libro libro)
     {
         this.libros.add(libro);
     }
-    
-    /**
-     *  Muestra la información de todos los libros en la biblioteca
-     */
-    public void mostrarLibros()
-    {
-        for(Libro libro : this.libros)
-        {
-            libro.mostrarInformacion();
-        }
-    }
-    
-    /**
-     *  Busca un libro por su título y muestra su información si lo encuentra; de lo contrario, muestra un mensaje indicando que no se encontró el libro.
-     * @return     the sum of x and y 
-     */
-    public Libro buscarLibroPorTitulo(String titulo)
-    {
-        for(Libro libro : this.libros)
-        {
-            if(libro.getTitulo().equals(titulo))
-            {
-                return libro;
+
+    // Buscar libros Prestados
+    public String toStringLibrosPrestados() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Libros prestados en la biblioteca:\n");
+        for (Libro libro : libros) {
+            if (libro.getPrestado()) {  // Verifica si el libro está prestado
+                sb.append("Título: ").append(libro.getTitulo())
+                  .append(", Autor: ").append(libro.getAutor())
+                  .append(", Año: ").append(libro.getAñoPublicacion())
+                  .append(", ISBN: ").append(libro.getIsbn())
+                  .append("\n");
             }
         }
-        return null;
+        return sb.toString();
+    }
+
+    // Buscar libros No Prestados
+    public String toStringLibrosNoPrestados() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Libros no prestados en la biblioteca:\n");
+        for (Libro libro : libros) {
+            if (!libro.getPrestado()) {  // Verifica si el libro NO está prestado
+                sb.append("Título: ").append(libro.getTitulo())
+                  .append(", Autor: ").append(libro.getAutor())
+                  .append(", Año: ").append(libro.getAñoPublicacion())
+                  .append(", ISBN: ").append(libro.getIsbn())
+                  .append("\n");
+            }
+        }
+        return sb.toString();
+    }
+
+    public List<Libro> getLibros() {
+        return libros;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Libros en la biblioteca:\n");
+        for (Libro libro : libros) {
+            sb.append("Título: ").append(libro.getTitulo())
+            .append(", Autor: ").append(libro.getAutor())
+            .append(", Año: ").append(libro.getAñoPublicacion())
+            .append(", ISBN: ").append(libro.getIsbn())
+            .append(", Prestado: ").append(libro.getPrestado())
+            .append("\n");
+        }
+        return sb.toString();
     }
 }
